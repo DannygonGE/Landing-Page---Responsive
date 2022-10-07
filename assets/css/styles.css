@@ -1,0 +1,293 @@
+@font-face {
+    font-family: "Agustina";
+    src: url(../fonts/Agustina.woff);
+}
+
+:root{
+
+    /* colors night */
+    --logo-text-color: #eceff1;
+    --black: #000;
+    --coffee:#8d6e63;
+    --white: #fff;
+    --semiblack: #212121;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--black);
+}
+
+/* navbar */
+
+nav {
+    background-color: var(--semiblack);
+    width: 100%;
+    height: 7vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    text-decoration: none;
+}
+
+.logo h1 {
+    font-family: "Agustina";
+    font-size: 30px;
+    color: var(--white);
+    margin-left: 20%;
+}
+
+.nav-bar {
+    font-family: "Poppins", sans-serif;
+}
+
+.nav-bar ul {
+    display: flex;
+    
+}
+
+.nav-bar ul li{
+    display: flex;
+    margin-right: 50px;
+    list-style: none;
+}
+
+.nav-bar ul li a{
+    text-decoration: none;
+    color: var(--coffee);
+    position: relative;
+}
+
+/* HOVER LINEBAR */
+
+.nav-bar ul li a::before,.nav-bar ul li a::before {
+    content: "";
+    border-bottom: 2px solid var(--coffee);
+    position: absolute;
+    width: 50px;
+    left: 0;
+    bottom: -5px;
+    opacity: 0;
+    transition: 0.2s;
+} 
+
+.nav-bar ul li .project::before {
+    content: "";
+    border-bottom: 2px solid var(--coffee);
+    position: absolute;
+    width: 70px;
+    left: 0;
+    bottom: -5px;
+    opacity: 0;
+} 
+
+.nav-bar ul li a:hover::before{
+    opacity: 1;
+}
+
+.nav-bar ul li .project::after{
+    opacity: 1;
+}
+
+/* BURGER */ 
+
+.burger {
+    display: none;
+}
+
+.burger div{
+    width: 25px;
+    height: 5px;
+    background-color: white;
+    margin: 5px;
+}
+
+/* content */
+
+.content {
+    font-family: "Poppins";
+    align-items: center;
+    text-align: center;
+    margin-top: 20%;
+}
+
+.content h2{
+    color: var(--white);
+}
+
+.content img{
+    width: 200px;
+}
+
+/* animated text */
+
+.texto {
+    margin-top: 10px;
+    font-size: 25px;
+    color: var(--white);
+}
+
+.texto .text {
+    position: relative;
+}
+
+.texto .second-part::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--black);
+    border-left: 2px solid var(--white);
+    animation: animateText 4s steps(12) infinite;
+}
+
+@keyframes animateText {
+    40% , 60% {
+        left: 100%;
+    }
+
+    100%{
+        left: 0%;
+    }
+}
+
+
+/* social media */
+
+.social-media {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}
+
+.box {
+    width: 60px;
+    height: 60px;
+    background-color: var(--white);
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 100%;
+}
+
+.box a i{
+    color: var(--black);
+}
+
+.box i{
+    margin-top: 15px;
+    font-size: 30px;
+}
+
+
+.github:hover{
+    background: #bd2c00;
+    transition: 0.5s;
+}
+
+.linkedin:hover{
+    background: #0072b1;
+    transition: 0.5s;
+}
+
+
+/*
+            MEDIA QUERIES 
+*/
+
+@media screen and (min-width:1024px) {
+    .nav-bar ul li a{
+        margin-right: 100px;
+    }
+
+    .content {
+        margin-top: 12%;
+    }
+
+    .content h2 {
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width:991px) {
+    .nav-bar {
+        position: absolute;
+        right: 0px;
+        width: 35%;
+        height: 100vh;
+        top: 7vh;
+        background-color: var(--semiblack);
+        transform: translateX(100%);
+        transition: 0.2s;
+        z-index: 1;
+    }
+
+    .nav-bar ul{
+        margin-top: 10%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        width: 100%;
+        align-items: center;
+    }
+
+    .nav-bar ul li{
+        font-size: 25px;
+        font-weight: bold;
+    }
+
+    .burger{
+        display: inline;
+        margin-right: 2%;
+    }
+
+    .nav-bar ul li a:hover{
+        color: var(--white);
+    }
+
+    .nav-bar ul li a::before,.nav-bar ul li a::before {
+        content: "";
+        border-bottom: 2px solid var(--coffee);
+        position: absolute;
+        width: 75px;
+        left: 0;
+        bottom: -5px;
+        opacity: 0;
+        transition: 0.2s;
+    } 
+    
+    .nav-bar ul li .project::before {
+        content: "";
+        border-bottom: 2px solid var(--coffee);
+        position: absolute;
+        width: 100px;
+        left: 0;
+        bottom: -5px;
+        opacity: 0;
+    } 
+
+    .content h2{
+        margin-bottom: 20px;
+    }
+}
+
+
+/* javascript */
+
+.nav-active {
+    transform: translateX(0%);
+}
+
+
